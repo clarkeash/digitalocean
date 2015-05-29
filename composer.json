@@ -1,0 +1,24 @@
+{
+    "name": "rackr/digitalocean",
+    "description": "A Digital Ocean Gateway",
+    "type": "library",
+    "require": {
+        "guzzlehttp/guzzle": "^6.0@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^4.8@dev"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rackr\\DigitalOcean\\": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ashley Clarke",
+            "email": "me@ashleyclarke.me"
+        }
+    ],
+    "minimum-stability": "dev"
+}
