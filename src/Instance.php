@@ -2,11 +2,13 @@
 
 use Rackr\Cloud\GatewayInterface;
 use Rackr\Cloud\InstanceInterface;
+use Rackr\Cloud\Reponse;
+use Rackr\Cloud\Response;
 
 class Instance implements InstanceInterface
 {
     /**
-     * @var GatewayInterface
+     * @var Gateway
      */
     protected $gateway;
 
@@ -21,7 +23,7 @@ class Instance implements InstanceInterface
     /**
      * Returns the parent gateway.
      *
-     * @return GatewayInterface
+     * @return Gateway
      */
     public function gateway()
     {
@@ -31,24 +33,33 @@ class Instance implements InstanceInterface
     /**
      * Create a new instance on the gateway.
      *
+     * @param $name
      * @param $size
      * @param $region
-     * @return array
+     * @param $image
+     * @return Response
      */
-    public function create($size, $region)
+    public function create($name, $size, $region, $image)
     {
-        // TODO: Implement create() method.
+        return $this->gateway()->post('droplets', [
+            'body' => [
+                'name' => $name,
+                'region' => $region,
+                'size' => $size,
+                'image' => $image
+            ]
+        ])->only('droplet');
     }
 
     /**
      * Get details about the instance.
      *
      * @param $identifier
-     * @return array
+     * @return Response
      */
     public function info($identifier)
     {
-        // TODO: Implement info() method.
+        return $this->gateway()->get(sprintf('droplets/%d', $identifier))->only('droplet');
     }
 
     /**
@@ -56,7 +67,7 @@ class Instance implements InstanceInterface
      *
      * @param $identifier
      * @param array $details
-     * @return mixed
+     * @return Response
      */
     public function update($identifier, array $details)
     {
@@ -67,7 +78,7 @@ class Instance implements InstanceInterface
      * Destroy an instance.
      *
      * @param $identifier
-     * @return mixed
+     * @return Response
      */
     public function destroy($identifier)
     {
@@ -77,7 +88,7 @@ class Instance implements InstanceInterface
     /**
      * List all instances.
      *
-     * @return array
+     * @return Response
      */
     public function all()
     {
@@ -88,7 +99,7 @@ class Instance implements InstanceInterface
      * Power on an instance.
      *
      * @param $identifier
-     * @return array
+     * @return Reponse
      */
     public function on($identifier)
     {
@@ -99,7 +110,7 @@ class Instance implements InstanceInterface
      * Power off an instance.
      *
      * @param $identifier
-     * @return array
+     * @return Response
      */
     public function off($identifier)
     {
