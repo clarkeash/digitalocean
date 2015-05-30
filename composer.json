@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "rackr/cloud": "dev-master",
-        "guzzlehttp/guzzle": "^6.0@dev"
+        "guzzlehttp/guzzle": "~5.3"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8@dev",
