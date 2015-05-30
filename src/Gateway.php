@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use Rackr\Cloud\GatewayInterface;
 use Rackr\Cloud\HttpGatewayTrait;
 use Rackr\Cloud\InstanceInterface;
+use Rackr\Cloud\Response;
 
 class Gateway implements GatewayInterface
 {
@@ -32,6 +33,10 @@ class Gateway implements GatewayInterface
      */
     protected $config;
 
+    /**
+     * @param Client $client
+     * @param array $config
+     */
     public function __construct(Client $client, array $config)
     {
         $this->client = $client;
@@ -59,6 +64,16 @@ class Gateway implements GatewayInterface
     }
 
     /**
+     * List of the available distributions.
+     *
+     * @return array
+     */
+    public function images()
+    {
+        return $this->get(sprintf('images?type=distribution&per_page=%d', PHP_INT_MAX))->only('images');
+    }
+
+    /**
      * An instance manager for the gateway.
      *
      * @return InstanceInterface
@@ -66,5 +81,22 @@ class Gateway implements GatewayInterface
     public function instance()
     {
         return new Instance($this);
+    }
+
+    /**
+     * @param $method
+     * @param $endpoint
+     * @param array $options
+     * @return Response
+     */
+    protected function send($method, $endpoint, $options = [])
+    {
+        $conf = [
+            'headers' => [ 'Authorization' => 'Bearer ' . $this->config['token'] ],
+        ];
+
+        $guzzleResp = $this->client->{$method}($this->endpoint($endpoint), array_merge($conf, $options));
+
+        return Response::make($guzzleResp->getBody()->getContents());
     }
 }

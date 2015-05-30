@@ -25,7 +25,7 @@ class Instance implements InstanceInterface
      */
     public function gateway()
     {
-        return $this->gateway();
+        return $this->gateway;
     }
 
     /**
@@ -81,7 +81,7 @@ class Instance implements InstanceInterface
      */
     public function all()
     {
-        // TODO: Implement all() method.
+        return $this->gateway()->get('droplets')->only('droplets');
     }
 
     /**

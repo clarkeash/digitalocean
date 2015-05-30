@@ -768,12 +768,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rackr/cloud.git",
-                "reference": "9285a2ecc658cd15870dc94808d943afa3d57ccf"
+                "reference": "c563485e25a6ce8ffb5bb2df48813a761228d5c7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rackr/cloud/zipball/9285a2ecc658cd15870dc94808d943afa3d57ccf",
-                "reference": "9285a2ecc658cd15870dc94808d943afa3d57ccf",
+                "url": "https://api.github.com/repos/rackr/cloud/zipball/c563485e25a6ce8ffb5bb2df48813a761228d5c7",
+                "reference": "c563485e25a6ce8ffb5bb2df48813a761228d5c7",
                 "shasum": ""
             },
             "require": {
@@ -799,7 +799,7 @@
                 }
             ],
             "description": "A common interface for cloud services.",
-            "time": "2015-05-30 19:01:13"
+            "time": "2015-05-30 19:40:31"
         },
         {
             "name": "sebastian/comparator",
