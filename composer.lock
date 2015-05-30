@@ -707,12 +707,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rackr/cloud.git",
-                "reference": "920ff68d6b2d42bdaf14f607169b82e41ae0c95d"
+                "reference": "0b31ca3a9f108e23e75bfab129c91874f9804cc0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rackr/cloud/zipball/920ff68d6b2d42bdaf14f607169b82e41ae0c95d",
-                "reference": "920ff68d6b2d42bdaf14f607169b82e41ae0c95d",
+                "url": "https://api.github.com/repos/rackr/cloud/zipball/0b31ca3a9f108e23e75bfab129c91874f9804cc0",
+                "reference": "0b31ca3a9f108e23e75bfab129c91874f9804cc0",
                 "shasum": ""
             },
             "require": {
@@ -738,7 +738,7 @@
                 }
             ],
             "description": "A common interface for cloud services.",
-            "time": "2015-05-30 23:09:13"
+            "time": "2015-05-30 23:15:16"
         },
         {
             "name": "react/promise",

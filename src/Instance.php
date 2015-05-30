@@ -82,7 +82,9 @@ class Instance implements InstanceInterface
      */
     public function destroy($identifier)
     {
-        // TODO: Implement destroy() method.
+        $this->gateway()->delete(sprintf('droplets/%d', $identifier));
+
+        // TODO: this returns no response data just a 204, we should interpret that and build a response with data and code.
     }
 
     /**
