@@ -46,7 +46,7 @@ class Gateway implements GatewayInterface
     /**
      * List of the available server types/sizes.
      *
-     * @return array
+     * @return Response
      */
     public function sizes()
     {
@@ -56,7 +56,7 @@ class Gateway implements GatewayInterface
     /**
      * List of the available server regions/zones.
      *
-     * @return array
+     * @return Response
      */
     public function regions()
     {
@@ -66,7 +66,7 @@ class Gateway implements GatewayInterface
     /**
      * List of the available distributions.
      *
-     * @return array
+     * @return Response
      */
     public function images()
     {
