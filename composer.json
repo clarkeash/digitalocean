@@ -3,6 +3,7 @@
     "description": "A Digital Ocean Gateway",
     "type": "library",
     "require": {
+        "rackr/cloud": "dev-master",
         "guzzlehttp/guzzle": "^6.0@dev"
     },
     "require-dev": {
@@ -20,5 +21,6 @@
             "email": "me@ashleyclarke.me"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
