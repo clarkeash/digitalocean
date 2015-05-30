@@ -4,6 +4,7 @@ namespace Rackr\DigitalOcean;
 
 use GuzzleHttp\Client;
 use Rackr\Cloud\GatewayInterface;
+use Rackr\Cloud\HttpGatewayTrait;
 use Rackr\Cloud\InstanceInterface;
 
 class DigitalOceanGateway implements GatewayInterface
