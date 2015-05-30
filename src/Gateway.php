@@ -7,7 +7,7 @@ use Rackr\Cloud\GatewayInterface;
 use Rackr\Cloud\HttpGatewayTrait;
 use Rackr\Cloud\InstanceInterface;
 
-class DigitalOceanGateway implements GatewayInterface
+class Gateway implements GatewayInterface
 {
     use HttpGatewayTrait;
 
@@ -65,6 +65,6 @@ class DigitalOceanGateway implements GatewayInterface
      */
     public function instance()
     {
-        // TODO: Implement instance() method.
+        return new Instance($this);
     }
 }
