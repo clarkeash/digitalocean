@@ -99,11 +99,15 @@ class Instance implements InstanceInterface
      * Power on an instance.
      *
      * @param $identifier
-     * @return Reponse
+     * @return Response
      */
     public function on($identifier)
     {
-        // TODO: Implement on() method.
+        return $this->gateway()->post(sprintf('droplets/%d/actions', $identifier), [
+            'body' => [
+                'type' => 'power_on'
+            ]
+        ])->only('action');
     }
 
     /**
@@ -114,6 +118,10 @@ class Instance implements InstanceInterface
      */
     public function off($identifier)
     {
-        // TODO: Implement off() method.
+        return $this->gateway()->post(sprintf('droplets/%d/actions', $identifier), [
+           'body' => [
+               'type' => 'power_off'
+           ]
+        ])->only('action');
     }
 }
