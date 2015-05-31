@@ -49,5 +49,37 @@ class GatewayTest extends PHPUnit_Framework_TestCase {
 
         $this->assertInstanceOf('Rackr\Cloud\Response', $resp);
     }
+
+    /** @test */
+    public function it_gets_the_available_regions()
+    {
+        $guzzleResp = $this->guzzle(['regions' => [] ]);
+
+        $this->guzzle->get('https://api.digitalocean.com/v2/regions', ["headers" => ["Authorization" => "Bearer FAKE"]])
+            ->willReturn($guzzleResp);
+
+        $resp = $this->gateway->regions();
+
+        $this->assertInstanceOf('Rackr\Cloud\Response', $resp);
+    }
+
+    /** @test */
+    public function it_gets_the_available_images()
+    {
+        $guzzleResp = $this->guzzle(['images' => [] ]);
+
+        $this->guzzle->get('https://api.digitalocean.com/v2/images?type=distribution&per_page=' . PHP_INT_MAX, ["headers" => ["Authorization" => "Bearer FAKE"]])
+            ->willReturn($guzzleResp);
+
+        $resp = $this->gateway->images();
+
+        $this->assertInstanceOf('Rackr\Cloud\Response', $resp);
+    }
+
+    /** @test */
+    public function it_gets_an_instance()
+    {
+        $this->assertInstanceOf('Rackr\DigitalOcean\Instance', $this->gateway->instance());
+    }
 }
  
