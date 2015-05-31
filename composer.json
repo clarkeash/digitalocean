@@ -15,11 +15,6 @@
             "Rackr\\DigitalOcean\\": "src/"
         }
     },
-    "autoload-dev": {
-        "classmap": [
-            "TestCase.php"
-        ]
-    },
     "license": "MIT",
     "authors": [
         {

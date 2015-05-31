@@ -2,7 +2,7 @@
 
 use Rackr\DigitalOcean\Gateway;
 
-class GatewayTest extends TestCase {
+class GatewayTest extends PHPUnit_Framework_TestCase {
 
     /**
      * @var \Prophecy\Prophecy\ObjectProphecy
@@ -18,6 +18,17 @@ class GatewayTest extends TestCase {
     {
         $this->guzzle = $this->prophesize('GuzzleHttp\Client');
         $this->gateway = new Gateway($this->guzzle->reveal(), ['token' => 'FAKE']);
+    }
+
+    protected function guzzleResp($data)
+    {
+        $guzzleStream = $this->prophesize('GuzzleHttp\Stream\StreamInterface');
+        $guzzleStream->getContents()->willReturn($data);
+
+        $guzzleResp = $this->prophesize('GuzzleHttp\Message\Response');
+        $guzzleResp->getBody()->willReturn($guzzleStream);
+
+        return $guzzleResp;
     }
 
     /** @test */

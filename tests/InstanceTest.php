@@ -2,7 +2,7 @@
 
 use Rackr\DigitalOcean\Instance;
 
-class InstanceTest extends TestCase {
+class InstanceTest extends PHPUnit_Framework_TestCase {
 
     /**
      * @var \Prophecy\Prophecy\ObjectProphecy
