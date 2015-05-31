@@ -8,7 +8,7 @@ use Rackr\Cloud\Response;
 class Instance implements InstanceInterface
 {
     /**
-     * @var Gateway
+     * @var GatewayInterface
      */
     protected $gateway;
 
@@ -23,7 +23,7 @@ class Instance implements InstanceInterface
     /**
      * Returns the parent gateway.
      *
-     * @return Gateway
+     * @return GatewayInterface
      */
     public function gateway()
     {
