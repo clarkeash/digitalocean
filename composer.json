@@ -2,6 +2,7 @@
     "name": "rackr/digitalocean",
     "description": "A Digital Ocean Gateway",
     "type": "library",
+    "keywords": ["cloud", "digitalocean", "server", "vps"],
     "require": {
         "rackr/cloud": "dev-master",
         "guzzlehttp/guzzle": "~5.3"
