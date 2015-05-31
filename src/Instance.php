@@ -2,7 +2,6 @@
 
 use Rackr\Cloud\GatewayInterface;
 use Rackr\Cloud\InstanceInterface;
-use Rackr\Cloud\Reponse;
 use Rackr\Cloud\Response;
 
 class Instance implements InstanceInterface
@@ -121,7 +120,7 @@ class Instance implements InstanceInterface
 
     /**
      * @param $identifier
-     * @param $type
+     * @param string $type
      * @return Response
      */
     protected function action($identifier, $type)
