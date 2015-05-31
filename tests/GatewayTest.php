@@ -2,7 +2,7 @@
 
 use Rackr\DigitalOcean\Gateway;
 
-class GatewayTest extends PHPUnit_Framework_TestCase {
+class GatewayTest extends TestCase {
 
     /**
      * @var \Prophecy\Prophecy\ObjectProphecy
@@ -26,21 +26,10 @@ class GatewayTest extends PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('Rackr\Cloud\GatewayInterface', $this->gateway);
     }
 
-    protected function guzzle($data)
-    {
-        $guzzleStream = $this->prophesize('GuzzleHttp\Stream\StreamInterface');
-        $guzzleStream->getContents()->willReturn($data);
-
-        $guzzleResp = $this->prophesize('GuzzleHttp\Message\Response');
-        $guzzleResp->getBody()->willReturn($guzzleStream);
-
-        return $guzzleResp;
-    }
-
     /** @test */
     public function it_gets_the_available_sizes()
     {
-        $guzzleResp = $this->guzzle(['sizes' => [] ]);
+        $guzzleResp = $this->guzzleResp(['sizes' => [] ]);
 
         $this->guzzle->get('https://api.digitalocean.com/v2/sizes', ["headers" => ["Authorization" => "Bearer FAKE"]])
             ->willReturn($guzzleResp);
@@ -53,7 +42,7 @@ class GatewayTest extends PHPUnit_Framework_TestCase {
     /** @test */
     public function it_gets_the_available_regions()
     {
-        $guzzleResp = $this->guzzle(['regions' => [] ]);
+        $guzzleResp = $this->guzzleResp(['regions' => [] ]);
 
         $this->guzzle->get('https://api.digitalocean.com/v2/regions', ["headers" => ["Authorization" => "Bearer FAKE"]])
             ->willReturn($guzzleResp);
@@ -66,7 +55,7 @@ class GatewayTest extends PHPUnit_Framework_TestCase {
     /** @test */
     public function it_gets_the_available_images()
     {
-        $guzzleResp = $this->guzzle(['images' => [] ]);
+        $guzzleResp = $this->guzzleResp(['images' => [] ]);
 
         $this->guzzle->get('https://api.digitalocean.com/v2/images?type=distribution&per_page=' . PHP_INT_MAX, ["headers" => ["Authorization" => "Bearer FAKE"]])
             ->willReturn($guzzleResp);
