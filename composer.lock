@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "49960a6a702be118ebdba50b5fe73b22",
+    "hash": "edc0d2706f19b98f0340aa6338e7a74e",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -330,16 +330,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "2.1.0",
+            "version": "2.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "ba315f46873fd6e86fdb98685a1a900e7379c886"
+                "reference": "60991776b3994cd8297b861e8ddc7f9c9500dedc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/ba315f46873fd6e86fdb98685a1a900e7379c886",
-                "reference": "ba315f46873fd6e86fdb98685a1a900e7379c886",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/60991776b3994cd8297b861e8ddc7f9c9500dedc",
+                "reference": "60991776b3994cd8297b861e8ddc7f9c9500dedc",
                 "shasum": ""
             },
             "require": {
@@ -388,7 +388,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-05-30 12:58:40"
+            "time": "2015-05-31 03:14:06"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -707,12 +707,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/rackr/cloud.git",
-                "reference": "0b31ca3a9f108e23e75bfab129c91874f9804cc0"
+                "reference": "f562134481a2c8bebdb890cc44f6d6d6d50fe3f5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/rackr/cloud/zipball/0b31ca3a9f108e23e75bfab129c91874f9804cc0",
-                "reference": "0b31ca3a9f108e23e75bfab129c91874f9804cc0",
+                "url": "https://api.github.com/repos/rackr/cloud/zipball/f562134481a2c8bebdb890cc44f6d6d6d50fe3f5",
+                "reference": "f562134481a2c8bebdb890cc44f6d6d6d50fe3f5",
                 "shasum": ""
             },
             "require": {
@@ -738,7 +738,7 @@
                 }
             ],
             "description": "A common interface for cloud services.",
-            "time": "2015-05-30 23:15:16"
+            "time": "2015-05-31 11:37:52"
         },
         {
             "name": "react/promise",

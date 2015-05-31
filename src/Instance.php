@@ -62,18 +62,6 @@ class Instance implements InstanceInterface
     }
 
     /**
-     * Update details about an instance.
-     *
-     * @param $identifier
-     * @param array $details
-     * @return Response
-     */
-    public function update($identifier, array $details)
-    {
-        // TODO: Implement update() method.
-    }
-
-    /**
      * Destroy an instance.
      *
      * @param $identifier
