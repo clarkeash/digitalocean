@@ -2,8 +2,8 @@
 
 use Rackr\DigitalOcean\Instance;
 
-class InstanceTest extends PHPUnit_Framework_TestCase {
-
+class InstanceTest extends PHPUnit_Framework_TestCase
+{
     /**
      * @var \Prophecy\Prophecy\ObjectProphecy
      */
@@ -44,9 +44,8 @@ class InstanceTest extends PHPUnit_Framework_TestCase {
         $response = $this->prophesize('Rackr\Cloud\Response');
         $response->only('droplet')->willReturn();
 
-        $this->gateway  ->post('droplets', [ 'body' => compact('name', 'size', 'region', 'image') ])
+        $this->gateway->post('droplets', ['body' => compact('name', 'size', 'region', 'image')])
                         ->willReturn($response);
-        ;
 
         $this->instance->create($name, $size, $region, $image);
     }
