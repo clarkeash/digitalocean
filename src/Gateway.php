@@ -35,7 +35,7 @@ class Gateway implements GatewayInterface
 
     /**
      * @param Client $client
-     * @param array $config
+     * @param array  $config
      */
     public function __construct(Client $client, array $config)
     {
@@ -87,12 +87,13 @@ class Gateway implements GatewayInterface
      * @param $method
      * @param $endpoint
      * @param array $options
+     *
      * @return Response
      */
-    protected function send($method, $endpoint, $options = [ ])
+    protected function send($method, $endpoint, $options = [])
     {
         $conf = [
-            'headers' => [ 'Authorization' => 'Bearer ' . $this->config[ 'token' ] ],
+            'headers' => ['Authorization' => 'Bearer '.$this->config[ 'token' ]],
         ];
 
         $guzzleResp = $this->client->{$method}($this->endpoint($endpoint), array_merge($conf, $options));
