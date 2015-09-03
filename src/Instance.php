@@ -1,4 +1,6 @@
-<?php namespace Rackr\DigitalOcean;
+<?php
+
+namespace Rackr\DigitalOcean;
 
 use Rackr\Cloud\GatewayInterface;
 use Rackr\Cloud\InstanceInterface;
@@ -36,17 +38,18 @@ class Instance implements InstanceInterface
      * @param $size
      * @param $region
      * @param $image
+     *
      * @return Response
      */
     public function create($name, $size, $region, $image)
     {
         return $this->gateway()->post('droplets', [
             'body' => [
-                'name' => $name,
+                'name'   => $name,
                 'region' => $region,
-                'size' => $size,
-                'image' => $image
-            ]
+                'size'   => $size,
+                'image'  => $image,
+            ],
         ])->only('droplet');
     }
 
@@ -54,6 +57,7 @@ class Instance implements InstanceInterface
      * Get details about the instance.
      *
      * @param $identifier
+     *
      * @return Response
      */
     public function info($identifier)
@@ -65,6 +69,7 @@ class Instance implements InstanceInterface
      * Destroy an instance.
      *
      * @param $identifier
+     *
      * @return Response
      */
     public function destroy($identifier)
@@ -88,6 +93,7 @@ class Instance implements InstanceInterface
      * Power on an instance.
      *
      * @param $identifier
+     *
      * @return Response
      */
     public function on($identifier)
@@ -99,6 +105,7 @@ class Instance implements InstanceInterface
      * Power off an instance.
      *
      * @param $identifier
+     *
      * @return Response
      */
     public function off($identifier)
@@ -109,14 +116,15 @@ class Instance implements InstanceInterface
     /**
      * @param $identifier
      * @param string $type
+     *
      * @return Response
      */
     protected function action($identifier, $type)
     {
         return $this->gateway()->post(sprintf('droplets/%d/actions', $identifier), [
             'body' => [
-                'type' => $type
-            ]
+                'type' => $type,
+            ],
         ])->only('action');
     }
 }

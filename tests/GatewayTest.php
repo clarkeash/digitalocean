@@ -2,8 +2,8 @@
 
 use Rackr\DigitalOcean\Gateway;
 
-class GatewayTest extends PHPUnit_Framework_TestCase {
-
+class GatewayTest extends PHPUnit_Framework_TestCase
+{
     /**
      * @var \Prophecy\Prophecy\ObjectProphecy
      */
@@ -40,9 +40,9 @@ class GatewayTest extends PHPUnit_Framework_TestCase {
     /** @test */
     public function it_gets_the_available_sizes()
     {
-        $guzzleResp = $this->guzzleResp(['sizes' => [] ]);
+        $guzzleResp = $this->guzzleResp(['sizes' => []]);
 
-        $this->guzzle->get('https://api.digitalocean.com/v2/sizes', ["headers" => ["Authorization" => "Bearer FAKE"]])
+        $this->guzzle->get('https://api.digitalocean.com/v2/sizes', ['headers' => ['Authorization' => 'Bearer FAKE']])
             ->willReturn($guzzleResp);
 
         $resp = $this->gateway->sizes();
@@ -53,9 +53,9 @@ class GatewayTest extends PHPUnit_Framework_TestCase {
     /** @test */
     public function it_gets_the_available_regions()
     {
-        $guzzleResp = $this->guzzleResp(['regions' => [] ]);
+        $guzzleResp = $this->guzzleResp(['regions' => []]);
 
-        $this->guzzle->get('https://api.digitalocean.com/v2/regions', ["headers" => ["Authorization" => "Bearer FAKE"]])
+        $this->guzzle->get('https://api.digitalocean.com/v2/regions', ['headers' => ['Authorization' => 'Bearer FAKE']])
             ->willReturn($guzzleResp);
 
         $resp = $this->gateway->regions();
@@ -66,9 +66,9 @@ class GatewayTest extends PHPUnit_Framework_TestCase {
     /** @test */
     public function it_gets_the_available_images()
     {
-        $guzzleResp = $this->guzzleResp(['images' => [] ]);
+        $guzzleResp = $this->guzzleResp(['images' => []]);
 
-        $this->guzzle->get('https://api.digitalocean.com/v2/images?type=distribution&per_page=' . PHP_INT_MAX, ["headers" => ["Authorization" => "Bearer FAKE"]])
+        $this->guzzle->get('https://api.digitalocean.com/v2/images?type=distribution&per_page='.PHP_INT_MAX, ['headers' => ['Authorization' => 'Bearer FAKE']])
             ->willReturn($guzzleResp);
 
         $resp = $this->gateway->images();
@@ -82,4 +82,3 @@ class GatewayTest extends PHPUnit_Framework_TestCase {
         $this->assertInstanceOf('Rackr\DigitalOcean\Instance', $this->gateway->instance());
     }
 }
- 
