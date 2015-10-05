@@ -24,7 +24,7 @@ $gateway = new \Rackr\DigitalOcean\Gateway(new GuzzleHttp\Client, ['token' => 'Y
 
 Further examples will assume you have created the gateway.
 
-### Sizes
+#### Sizes
 
 List the available server sizes
 
@@ -32,7 +32,7 @@ List the available server sizes
 $sizes = $gateway->sizes();
 ```
 
-### Regions
+#### Regions
 
 List the available server regions
 
@@ -40,7 +40,7 @@ List the available server regions
 $regions = $gateway->regions();
 ```
 
-### Images
+#### Images
 
 List the available server images
 
