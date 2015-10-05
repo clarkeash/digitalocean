@@ -8,3 +8,42 @@
 
 A [DigitalOcean](https://www.digitalocean.com) Gateway for [Rackr Cloud](https://github.com/rackr/cloud).
 
+# Usage
+
+## With Rackr/Cloud
+
+Instructions coming soon.
+
+## Without Rackr/Cloud
+
+### Create A Gateway
+
+```php
+$gateway = new \Rackr\DigitalOcean\Gateway(new GuzzleHttp\Client, ['token' => 'YOUR_TOKEN']);
+```
+
+Further examples will assume you have created the gateway.
+
+#### Sizes
+
+List the available server sizes
+
+```php
+$sizes = $gateway->sizes();
+```
+
+#### Regions
+
+List the available server regions
+
+```php
+$regions = $gateway->regions();
+```
+
+#### Images
+
+List the available server images
+
+```php
+$images = $gateway->images();
+```
