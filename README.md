@@ -47,3 +47,59 @@ List the available server images
 ```php
 $images = $gateway->images();
 ```
+
+### Use an Instance
+
+```php
+$instance = $gateway->instance();
+```
+
+Further examples will assume you have created the instance.
+
+#### Create
+
+Create a new instance on the gateway
+
+```php
+$instance->create('example.com', '1gb', 'nyc1', 'ubuntu-14-04-x64');
+```
+
+#### All
+
+List all instances
+
+```php
+$instance->all();
+```
+
+#### Info
+
+Get details about the instance.
+
+```php
+$instance->info(123456);
+```
+
+#### Destroy
+
+Destroy an instance.
+
+```php
+$instance->destroy(123456);
+```
+
+#### Power On
+
+Power on  an instance.
+
+```php
+$instance->on(123456);
+```
+
+#### Power Off
+
+Power off  an instance.
+
+```php
+$instance->off(123456);
+```
