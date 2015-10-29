@@ -103,3 +103,9 @@ Power off  an instance.
 ```php
 $instance->off(123456);
 ```
+
+## Testing
+
+``` bash
+$ ./vendor/bin/phpunit
+```
