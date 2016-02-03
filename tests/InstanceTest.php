@@ -44,7 +44,7 @@ class InstanceTest extends PHPUnit_Framework_TestCase
         $response = $this->prophesize('Rackr\Cloud\Response');
         $response->only('droplet')->willReturn();
 
-        $this->gateway->post('droplets', ['body' => compact('name', 'size', 'region', 'image')])
+        $this->gateway->post('droplets', ['json' => compact('name', 'size', 'region', 'image')])
                         ->willReturn($response);
 
         $this->instance->create($name, $size, $region, $image);
@@ -86,7 +86,7 @@ class InstanceTest extends PHPUnit_Framework_TestCase
         $response = $this->prophesize('Rackr\Cloud\Response');
         $response->only('action')->willReturn();
 
-        $this->gateway->post('droplets/123/actions', ['body' => ['type' => 'power_on']])->willReturn($response);
+        $this->gateway->post('droplets/123/actions', ['json' => ['type' => 'power_on']])->willReturn($response);
 
         $this->instance->on(123);
     }
@@ -97,7 +97,7 @@ class InstanceTest extends PHPUnit_Framework_TestCase
         $response = $this->prophesize('Rackr\Cloud\Response');
         $response->only('action')->willReturn();
 
-        $this->gateway->post('droplets/123/actions', ['body' => ['type' => 'power_off']])->willReturn($response);
+        $this->gateway->post('droplets/123/actions', ['json' => ['type' => 'power_off']])->willReturn($response);
 
         $this->instance->off(123);
     }

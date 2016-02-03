@@ -98,6 +98,6 @@ class Gateway implements GatewayInterface
 
         $guzzleResp = $this->client->{$method}($this->endpoint($endpoint), array_merge($conf, $options));
 
-        return Response::make($guzzleResp->getBody()->getContents());
+        return Response::make($guzzleResp->getBody());
     }
 }

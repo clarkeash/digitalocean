@@ -44,7 +44,7 @@ class Instance implements InstanceInterface
     public function create($name, $size, $region, $image)
     {
         return $this->gateway()->post('droplets', [
-            'body' => [
+            'json' => [
                 'name'   => $name,
                 'region' => $region,
                 'size'   => $size,
@@ -122,7 +122,7 @@ class Instance implements InstanceInterface
     protected function action($identifier, $type)
     {
         return $this->gateway()->post(sprintf('droplets/%d/actions', $identifier), [
-            'body' => [
+            'json' => [
                 'type' => $type,
             ],
         ])->only('action');
