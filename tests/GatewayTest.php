@@ -1,6 +1,7 @@
 <?php
 
-use Psr\Http\Message\MessageInterface;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\StreamInterface;
 use Rackr\DigitalOcean\Gateway;
 
 class GatewayTest extends PHPUnit_Framework_TestCase
@@ -23,8 +24,11 @@ class GatewayTest extends PHPUnit_Framework_TestCase
 
     protected function guzzleResp($data)
     {
-        $guzzleResp = $this->prophesize(MessageInterface::class);
-        $guzzleResp->getBody()->willReturn(json_encode($data));
+        $stream = $this->prophesize(StreamInterface::class);
+        $stream->getContents()->willReturn(json_encode($data));
+
+        $guzzleResp = $this->prophesize(ResponseInterface::class);
+        $guzzleResp->getBody()->willReturn($stream);
 
         return $guzzleResp;
     }

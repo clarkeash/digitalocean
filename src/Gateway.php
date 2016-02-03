@@ -3,6 +3,7 @@
 namespace Rackr\DigitalOcean;
 
 use GuzzleHttp\Client;
+use Psr\Http\Message\ResponseInterface;
 use Rackr\Cloud\GatewayInterface;
 use Rackr\Cloud\HttpGatewayTrait;
 use Rackr\Cloud\InstanceInterface;
@@ -96,8 +97,9 @@ class Gateway implements GatewayInterface
             'headers' => ['Authorization' => 'Bearer '.$this->config[ 'token' ]],
         ];
 
+        /** @var ResponseInterface $guzzleResp */
         $guzzleResp = $this->client->{$method}($this->endpoint($endpoint), array_merge($conf, $options));
 
-        return Response::make($guzzleResp->getBody());
+        return Response::make($guzzleResp->getBody()->getContents());
     }
 }
